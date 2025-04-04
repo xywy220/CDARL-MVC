@@ -262,6 +262,7 @@ class Model():
                         optimizer_g.zero_grad()
                         gen_loss.backward(retain_graph=True)
                         optimizer_g.step()
+                        loss_all = loss_all + gen_loss.item()
 
                     data_dx1 = self.dx_1(z2)
                     data_dx2 = self.dx_2(z1)
